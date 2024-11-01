@@ -18,10 +18,10 @@ public class BaseTest {
 
 	
 	public static void setupDriver() throws MalformedURLException {
-		options = new UiAutomator2Options().setDeviceName("samsung SM-S908E").setPlatformName("Android")
-				.setPlatformVersion("9").setAppPackage("vn.com.medpro")
-				.setAppActivity("vn.com.medpro.MainActivity").setAutomationName("UiAutomator2").setAutoGrantPermissions(true);
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), options);
+		options = new UiAutomator2Options().setDeviceName(Constants.DEVICE_NAME).setPlatformName(Constants.PLATFORM_NAME)
+				.setPlatformVersion(Constants.PLATFORM_VERSION).setAppPackage(Constants.MEDPRO_APP_PKG)
+				.setAppActivity(Constants.MEDPRO_MAIN_ACTIVITY).setAutomationName(Constants.AUTOMATION_NAME).setAutoGrantPermissions(true);
+		driver = new AndroidDriver(new URL(Constants.APPIUM_URL), options);
 	}
 
 	
