@@ -6,6 +6,10 @@ Feature: Homepage
     
   @initial_homepage
   Scenario: Assert homepage attribute
+  	And User choose region "all"
+  	And User choose language "vietnamese"
+  	And User tap on continue button
+  	And User close popup banner
   	Then User should see feature "Đặt khám\n Bác sĩ"
 
   #@add_to_cart

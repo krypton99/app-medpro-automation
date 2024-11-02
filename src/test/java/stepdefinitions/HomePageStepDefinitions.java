@@ -24,4 +24,9 @@ public class HomePageStepDefinitions {
 	public void user_should_see_feature(String string) {
 	    homePage.tapOnDoctor();
 	}
+	
+	@Given("User close popup banner")
+	public void user_close_popup_banner() throws InterruptedException {
+	    homePage.tapOnCloseBanner();
+	}
 }
