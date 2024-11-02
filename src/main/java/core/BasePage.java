@@ -21,6 +21,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.SupportsRotation;
 
@@ -88,18 +89,33 @@ public class BasePage {
 	}
 	
 	public int getElementHeight(WebElement element) {
-		wait.until(ExpectedConditions.elementToBeClickable(element));
+		wait.until(ExpectedConditions.visibilityOf(element));
 		return element.getSize().getHeight();
 	}
 	
+	public int getElementHeight(By by) {
+		return wait.until(ExpectedConditions.elementToBeClickable(by)).getSize().getHeight();
+	}
+	
 	public int getElementWidth(WebElement element) {
-		wait.until(ExpectedConditions.elementToBeClickable(element));
+		wait.until(ExpectedConditions.visibilityOf(element));
 		return element.getSize().getWidth();
 	}
 	
+	public int getElementWidth(By by) {
+		return wait.until(ExpectedConditions.elementToBeClickable(by)).getSize().getWidth();
+	}
+	
 	public int[] getElementLocation(WebElement element) {
-		wait.until(ExpectedConditions.elementToBeClickable(element));
+		wait.until(ExpectedConditions.visibilityOf(element));
 		return new int[] {element.getLocation().getX(), element.getLocation().getY()};
+	}
+	
+	public int[] getElementLocation(By by) {
+		WebElement ele = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+		int startX = ele.getLocation().x;
+		int startY = ele.getLocation().y;
+		return new int[] {startX, startY};
 	}
 	
 	public void swipeUpByElementHeightAndWidth(WebElement element, int numOfIteration) {
