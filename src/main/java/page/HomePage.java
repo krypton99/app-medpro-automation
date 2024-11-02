@@ -36,6 +36,29 @@ public class HomePage extends BasePage {
 	@FindBy(how = How.ID, using = "vn.tiki.app.tikiandroid:id/etQuery")
 	private WebElement searchInput;
 	
+	@FindBy(how = How.XPATH, using = "//android.widget.TextView[@text=\"Xem Chi tiết\"]")
+	private WebElement buttonSeeMore;
+	
+	@FindBy(how = How.XPATH, using = "//android.widget.ImageView")
+	private WebElement banner;
+
+	public void tapOnCloseBanner() {
+		
+		By by =  AppiumBy.xpath("//android.widget.ImageView");
+		isBannerOpened();
+		
+		int[] point = getElementLocation(banner);
+		int width = getElementWidth(banner);
+		int X = point[0] + width - 15;
+		int Y = point[1] - 20;
+		tapByCoordinates(X, Y);
+	}
+	
+	//To make sure that the banner is opening
+	public void isBannerOpened() {
+		isElementVisibility(buttonSeeMore);
+	}
+	
 	public void tapOnCategoryMenu() {
 		tapByElement(categoryMenu);
 	}
