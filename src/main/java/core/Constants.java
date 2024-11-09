@@ -15,6 +15,12 @@ public class Constants {
 	public static final String PLATFORM_NAME = "ANDROID";
 	
 	public static final String APPIUM_URL = "http://127.0.0.1:4723/";
+	
+	public static final int SWIPE_UP = 1;
+	public static final int SWIPE_RIGHT = 2;
+	public static final int SWIPE_DOWN = 3;
+	public static final int SWIPE_LEFT = 4;
+	
 }
 
 
