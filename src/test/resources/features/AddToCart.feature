@@ -6,12 +6,23 @@ Feature: Homepage
     
   @initial_homepage
   Scenario: Assert homepage attribute
+  	And User choose language "vietnamese"
+  	And User close popup banner
+  	Then User should see feature section
+  	And User should see associated hospital section
+  	And User should see banner section
+  	And User should see recommended hospital section
+  	And User should see telemedicine doctor section
+  	And User should see comprehensive medical bundle section
+  	
+
+  @initial_homepage2
+  Scenario: Assert homepage attribute
   	And User choose region "all"
   	And User choose language "vietnamese"
   	And User tap on continue button
   	And User close popup banner
   	Then User should see feature "Đặt khám\n Bác sĩ"
-
   #@add_to_cart
   #Scenario: Verify buttons displays on product page
     #And User search "dien thoai"

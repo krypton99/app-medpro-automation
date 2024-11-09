@@ -10,18 +10,6 @@ public class ConfigPageStepDefinitions {
 	public ConfigPageStepDefinitions() {
 		configPage = new ConfigPage(BaseTest.getDriver());
 	}
-	
-	@Given("User choose region {string}")
-	public void user_choose_region(String region) {
-	    switch (region) {
-		    case "all": 
-		    	configPage.tapOnAll();
-	    		break;
-	    	case "cantho":
-	    		configPage.tapOnCanTho();
-	    		break;
-	    }
-	}
 
 	@Given("User choose language {string}")
 	public void user_choose_language(String language) {
@@ -36,11 +24,6 @@ public class ConfigPageStepDefinitions {
     		configPage.tapOnEn();
     		break;
 		}
-	}
-
-	@Given("User tap on continue button")
-	public void user_tap_on_continue_button() {
-	    configPage.tapOnContinue();
 	}
 
 }

@@ -13,12 +13,6 @@ public class ConfigPage extends BasePage {
 		super(androidDriver);
 		// TODO Auto-generated constructor stub
 	}
-
-	@FindBy(how = How.XPATH, using = "//android.widget.TextView[@text='Tất cả']/..")
-	private WebElement comboboxAll;
-	
-	@FindBy(how = How.XPATH, using = "//android.widget.TextView[@text='Cần Thơ']/..")
-	private WebElement comboboxCanTho;
 	
 	@FindBy(how = How.XPATH, using = "//android.widget.TextView[@text='Tiếng Việt']/..")
 	private WebElement comboboxVi;
@@ -28,9 +22,6 @@ public class ConfigPage extends BasePage {
 	
 	@FindBy(how = How.XPATH, using = "//android.widget.TextView[@text='Tiếng Khmer']/..")
 	private WebElement comboboxKh;
-	
-	@FindBy(how = How.XPATH, using = "//android.widget.Button")
-	private WebElement continueButton;
 	
 	public void tapOnVi() {
 		tapByElement(comboboxVi);
@@ -44,15 +35,4 @@ public class ConfigPage extends BasePage {
 		tapByElement(comboboxKh);
 	}
 	
-	public void tapOnAll() {
-		tapByElement(comboboxAll);
-	}
-	
-	public void tapOnCanTho() {
-		tapByElement(comboboxCanTho);
-	}
-	
-	public void tapOnContinue() {
-		tapByElement(continueButton);
-	}
 }
