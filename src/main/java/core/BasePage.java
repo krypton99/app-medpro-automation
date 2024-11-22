@@ -142,6 +142,23 @@ public class BasePage {
 
 		driver.perform(Collections.singletonList(tap));
 	}
+	
+	public void tapByElementBy(By by) {
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
+		PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+		int x = element.getLocation().getX();
+		int y = element.getLocation().getY();
+		int width = element.getSize().getWidth();
+		int height = element.getSize().getHeight();
+		int centerX = x + width / 2;
+		int centerY = y + height / 2;
+		Sequence tap = new Sequence(finger, 1)
+				.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), centerX, centerY))
+				.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+				.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+		driver.perform(Collections.singletonList(tap));
+	}
 
 // Phương thức để chạm vào tọa độ cụ thể  
 	public void tapByCoordinates(int x, int y) {
