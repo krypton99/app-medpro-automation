@@ -3,26 +3,31 @@ Feature: Homepage
 
   Background: 
     Given User open Medpro application
-    
-  @initial_homepage
-  Scenario: Assert homepage attribute
-  	And User choose language "vietnamese"
-  	And User close popup banner
-  	Then User should see feature section
-  	And User should see associated hospital section
-  	And User should see banner section
-  	And User should see recommended hospital section
-  	And User should see telemedicine doctor section
-  	And User should see comprehensive medical bundle section
-  	
 
-  @initial_homepage2
+  @verify_homepage_ui
   Scenario: Assert homepage attribute
-  	And User choose region "all"
-  	And User choose language "vietnamese"
-  	And User tap on continue button
-  	And User close popup banner
-  	Then User should see feature "Đặt khám\n Bác sĩ"
+    And User choose language "vietnamese"
+    And User close popup banner
+    Then User should see feature section
+    And User should see associated hospital section
+    And User should see banner section
+    And User should see recommended hospital section
+    And User should see telemedicine doctor section
+    And User should see comprehensive medical bundle section
+
+  @cskh_phone
+  Scenario Outline: Assert cskh button
+    And User choose language "vietnamese"
+    And User close popup banner
+    And User tap on cskh button
+    And User tap on cskh "<option>"
+    And User should see "<application>" opened
+
+    Examples: 
+      | option    | application |
+      | phone     | zalo        |
+      | messenger | messenger   |
+      | zalo      | zalo        |
   #@add_to_cart
   #Scenario: Verify buttons displays on product page
     #And User search "dien thoai"
