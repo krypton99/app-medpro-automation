@@ -23,8 +23,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.connection.ConnectionState;
+import io.appium.java_client.android.connection.ConnectionStateBuilder;
 import io.appium.java_client.remote.SupportsRotation;
-
 public class BasePage {
 	private static final int TIMEOUT = 5;
 	private static final int POLLING = 100;
@@ -81,6 +82,18 @@ public class BasePage {
 
 	public WebDriverWait getDriverWait() {
 		return wait;
+	}
+	
+	public void turnOffInternetConnection() {
+		try {
+			ConnectionState allOff = new ConnectionStateBuilder().build();
+			this.driver.setConnection(allOff);
+			System.out.println("Wifi:" + driver.getConnection().isWiFiEnabled());
+			System.out.println("Data:" + driver.getConnection().isDataEnabled());
+			System.out.println("Airplane mode:" + driver.getConnection().isAirplaneModeEnabled());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} 
 	}
 
 	public int getElementHeight(WebElement element) {

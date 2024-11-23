@@ -50,7 +50,10 @@ public class HomePage extends BasePage {
 	public String cskhZalo = String.format("//android.widget.TextView[@text='%s']/..", Label.CSKH_ZALO.vi);	
 	
 	public String cskhClose = String.format("//android.widget.TextView[@text='%s']", Label.CSKH_CLOSE.vi);
-				
+		
+	public String noInternetMsg = String.format("//android.widget.TextView[@text='%s']", "Vui lòng kiểm tra lại Wifi hoặc 3G");
+	
+
 	public HomePage(AndroidDriver androidDriver) {
 		super(androidDriver);
 	}
@@ -76,7 +79,7 @@ public class HomePage extends BasePage {
 	@FindBy(how = How.XPATH, using = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.ImageView")
 	private WebElement cskhButton;
 	
-	@FindBy(how = How.XPATH, using = "//android.widget.ListView[@resource-id=\"android:id/resolver_list\"]/android.widget.LinearLayout[1]")
+	@FindBy(how = How.XPATH, using = "//android.widget.TextView[@resource-id=\"android:id/title\"]")
 	private WebElement confirmZalo;
 
 	@FindBy(how = How.XPATH, using = "//android.widget.Button[@resource-id=\"android:id/button_once\"]")
@@ -157,7 +160,12 @@ public class HomePage extends BasePage {
 	public boolean isFeatureMedicalExaminationResultsDisplayed() {
 		return isElementVisibilityBy(By.xpath(featureMedicalExaminationResults));
 	}
-
+	
+	// popup no internet connection - Popup thông báo vui lòng kiểm tra lại wifi hoặc 3G
+	public boolean isNoConnectionPopupDisplay() {
+		return isElementVisibilityBy(By.xpath(noInternetMsg));
+	}
+	
 	public boolean isCarouselBannerDisplayed() {
 		return isElementVisibility(carouselBanner);
 	}

@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.checkerframework.checker.units.qual.h;
 import org.testng.Assert;
 
 import core.BaseTest;
@@ -96,6 +97,16 @@ public class HomePageStepDefinitions {
 		default:
 			break;
 		}
+	}
+	
+	@Given("User turn off internet connection")
+	public void user_turn_off_internet_connection() throws InterruptedException {
+	    homePage.turnOffInternetConnection();
+	    Thread.sleep(4000);
+	}
+	@Then("User should see no internet popup message")
+	public void user_should_see_no_internet_popup_message() {
+	    Assert.assertTrue(homePage.isNoConnectionPopupDisplay());
 	}
 
 }

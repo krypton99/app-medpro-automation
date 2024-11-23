@@ -28,6 +28,14 @@ Feature: Homepage
       | phone     | zalo        |
       | messenger | messenger   |
       | zalo      | zalo        |
+      
+  @verify_message_no_connection
+  Scenario: Assert notification when internet connection is off
+  	And User choose language "vietnamese"
+    And User close popup banner
+    And User turn off internet connection
+    Then User should see no internet popup message
+  
   #@add_to_cart
   #Scenario: Verify buttons displays on product page
     #And User search "dien thoai"
