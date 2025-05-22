@@ -38,4 +38,8 @@ public class Label {
 	public static final Language CSKH_ZALO = new Language("ZALO", "");
 	public static final Language CSKH_MESSENGER = new Language("MESSENGER", "");
 	public static final Language CSKH_CLOSE = new Language("Đóng", "");
+	
+	// Popup check internet connection label
+	public static final Language POPUP_NOTI_CHECK_INTERNET_CONNECTION = new Language("Vui lòng kiểm tra lại Wifi hoặc 3G", "");
+	
 }

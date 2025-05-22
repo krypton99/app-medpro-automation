@@ -51,7 +51,7 @@ public class HomePage extends BasePage {
 	
 	public String cskhClose = String.format("//android.widget.TextView[@text='%s']", Label.CSKH_CLOSE.vi);
 		
-	public String noInternetMsg = String.format("//android.widget.TextView[@text='%s']", "Vui lòng kiểm tra lại Wifi hoặc 3G");
+	public String noInternetMsg = String.format("//android.widget.TextView[@text='%s']", Label.POPUP_NOTI_CHECK_INTERNET_CONNECTION);
 	
 
 	public HomePage(AndroidDriver androidDriver) {

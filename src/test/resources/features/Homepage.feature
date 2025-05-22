@@ -36,6 +36,24 @@ Feature: Homepage
     And User turn off internet connection
     Then User should see no internet popup message
   
+  @booking_suggested_health_facilities
+  Scenario: Assert booking from mostly booked health facilities
+  	And User choose language "vietnamese"
+    And User close popup banner
+    And User should see recommended hospital section
+    And User should swipe to find "Bệnh viện Quận Bình Thạnh"
+    And User should tap on book now button in Health facility Card
+    And User navigates to the Choose health facilities Screen
+    And User should tap on "Đặt khám theo chuyên khoa" in Choose medical service popup
+    And User should choose specialty "Khám gan mật"
+    And User should choose service "Khám Tự chọn Yêu cầu (Tầng trệt, 1 Khu B)" "with" Medical Insurance
+    And User should choose doctor "BS CKI TRẦN THỊ HỒNG PHƯỚC"
+    And User should choose consulting day
+    And User should choose consulting time
+    And User should choose continue button in choose information screen
+    And User should swipe to find and choose a profile with name "TEST TẠO"
+    And User should choose continue button in choose information confirmation screen
+    
   #@add_to_cart
   #Scenario: Verify buttons displays on product page
     #And User search "dien thoai"

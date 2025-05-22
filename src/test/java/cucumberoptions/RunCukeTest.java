@@ -16,7 +16,7 @@ import io.cucumber.testng.TestNGCucumberRunner;
 		"html:target/cucumber-reports/cucumber-pretty.html", 
 		"json:target/cucumber-reports/CucumberTestReport.json",
 		"rerun:target/cucumber-reports/rerun.txt" },
-		tags = "@initial_homepage")
+		tags = "@verify_message_no_connection")
 
 public class RunCukeTest {
 		private TestNGCucumberRunner testNGCucumberRunner;
